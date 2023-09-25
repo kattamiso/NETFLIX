@@ -1,0 +1,38 @@
+body {
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: Arial, sans-serif;
+  background-image: url("../img/background.jpg");
+}
+
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  color: white;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 90%;
+  padding: 20px;
+  margin: 5px 0;
+  border: none;
+  border-radius: 3px;
+  font-size: 16px;
+}
+
+.submit {
+  width: 150px;
+  height: 45px;
+  padding: 6px;
+  margin-left: 120px;
+  background: red;
+  border-radius: 5px;
+  margin-top: 10px;
+  color: white;
+  cursor: pointer;
+}

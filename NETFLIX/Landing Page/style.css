@@ -1,0 +1,380 @@
+* {
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+li,
+a,
+button {
+  text-decoration: none;
+  list-style: none;
+}
+
+body {
+  background-image: url("../img/background.jpg");
+}
+
+body::before {
+  content: "";
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+}
+
+/* header */
+
+header {
+  display: flex;
+  flex-direction: row;
+}
+
+.netflix-logo {
+  width: 200px;
+  height: 100px;
+  margin-left: 150px;
+}
+
+#language {
+  width: 130px;
+  height: 40px;
+  margin-top: 40px;
+  margin-left: 200px;
+  padding-left: 2rem;
+  background-color: rgb(41, 39, 39);
+  color: white;
+}
+
+#language:checked {
+  border-color: rgb(255, 255, 255);
+}
+
+.lang-icon {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 3.1rem;
+  left: 205px;
+  fill: white;
+}
+
+.language-container {
+  position: relative;
+}
+
+.authorization-btn {
+  background-color: rgb(215, 19, 19);
+  width: 80px;
+  height: 30px;
+  border-style: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.authorization-btn:hover {
+  background-color: brown;
+}
+
+.link {
+  color: white;
+}
+
+.landing-text {
+  color: white;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  margin-top: 170px;
+}
+
+h1 {
+  font-size: 50px;
+}
+
+.landing-text h1,
+.landing-text h3 {
+  margin: 10px auto;
+}
+
+/* email */
+#email {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-color: rgb(151, 145, 145);
+  border-radius: 4px;
+  width: 30rem;
+  border-width: 1px;
+  margin-bottom: 200px;
+}
+
+.email-input {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 600px;
+}
+
+.starting-btn {
+  width: 20rem;
+  background-color: rgb(215, 19, 19);
+  height: 60px;
+  margin-left: 10px;
+  border-radius: 4px;
+  border-style: none;
+  font-size: 25px;
+  color: white;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.3s;
+  bottom: 100px;
+}
+
+.starting-btn:hover {
+  background-color: brown;
+}
+
+/* separator(hr) */
+
+.separator {
+  border: none;
+  height: 10px;
+  background-color: #232323;
+}
+
+section {
+  background-color: black;
+  height: 80vh;
+}
+
+/* second page on scroll */
+
+.section-one h2,
+.section-one h3 {
+  color: white;
+}
+
+.section-one h3 {
+  font-size: medium;
+}
+
+.paragraph {
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+  padding-right: 250px;
+  margin-left: 200px;
+  top: 200px;
+  position: relative;
+}
+
+.tv-img {
+  width: 500px;
+  height: 350px;
+  margin-left: 730px;
+}
+
+.video {
+  height: 180px;
+  width: 350px;
+  margin-left: 800px;
+  bottom: 280px;
+  position: relative;
+  /* z-index: -1; */
+}
+
+/* section 2  */
+.stranger-img {
+  width: 500px;
+  margin-left: 100px;
+}
+
+.paragraph2 {
+  color: white;
+  margin-left: 650px;
+  bottom: 180px;
+  position: relative;
+}
+
+.mobile-side {
+  position: relative;
+}
+
+.download-box {
+  background-color: black;
+  width: 300px;
+  height: 100px;
+  color: white;
+  margin-left: 205px;
+  position: absolute;
+  bottom: 0px;
+  border: 0.2px solid white;
+  border-radius: 8px;
+}
+
+.box-img {
+  height: 80px;
+  width: 60px;
+}
+
+.box-heading,
+.box-title {
+  margin-left: 70px;
+  bottom: 70px;
+  position: relative;
+}
+
+.box-title {
+  color: blue;
+}
+
+@media screen and (min-width: 960px) {
+  .default-ltr-cache-1q4up1i {
+    width: 3rem;
+    height: 3rem;
+    outline: 2px solid rgb(0, 0, 0);
+    outline-offset: -2px;
+    display: block;
+    background: url(https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/download-icon.gif)
+      center center no-repeat;
+    -webkit-background-size: 100%;
+    background-size: 100%;
+    content: "";
+    -webkit-box-flex: 0;
+    -webkit-flex-grow: 0;
+    -ms-flex-positive: 0;
+    flex-grow: 0;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+  }
+}
+
+.default-ltr-cache-1q4up1i {
+  margin-left: 27rem;
+  bottom: 30px;
+  position: relative;
+}
+
+/* section 3 */
+.section-three {
+  height: 120vh;
+  background-color: black;
+}
+
+.Q-heading {
+  color: white;
+  position: absolute;
+  margin-top: 120px;
+  left: 35%;
+}
+
+/* accordion */
+.faq-container {
+  max-width: 1000px;
+  margin-top: 200px;
+  padding: 20px;
+  border-radius: 8px;
+  position: absolute;
+}
+
+.accordion {
+  margin-top: 20px;
+  margin-bottom: 5px;
+  margin-left: 150px;
+  width: 1000px;
+  height: 60px;
+  cursor: pointer;
+  padding: 10px 15px;
+  background: #333;
+  color: #fff;
+  border: 1px solid #444;
+  border-radius: 2px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Accordion answer style */
+.content {
+  width: 1000px;
+  display: none;
+  padding: 10px 15px;
+  background: #4b4a4a;
+  border: 1px solid #444;
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+  color: white;
+  margin-left: 150px;
+  transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
+}
+
+.accordion:hover {
+  background-color: #4b4a4a;
+  transition: background-color 0.3s;
+}
+
+/* footer */
+.footer {
+  position: relative;
+  margin-top: 500px;
+  background-color: #000;
+  padding: 20px 0;
+  text-align: center;
+  color: #888;
+}
+
+.footer a {
+  color: #888;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: #e50914;
+}
+
+.footer {
+  margin-top: 40rem;
+  margin-right: 15rem;
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.footer .logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.footer .nav {
+  list-style: none;
+  padding: 0;
+  display: flex;
+}
+
+.footer .nav li {
+  margin-right: 20px;
+}
+
+.footer .nav li:last-child {
+  margin-right: 0;
+}
+
+.footer .social {
+  font-size: 24px;
+}
+
+.footer .social i {
+  margin-right: 20px;
+}
