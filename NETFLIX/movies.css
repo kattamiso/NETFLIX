@@ -9,7 +9,7 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  height: 600px;
+  height: 1000px;
   object-fit: cover;
   z-index: -60;
 }
@@ -55,107 +55,107 @@ body {
 
 /* carousel */
 
-:root {
-  --handle-size: 3rem;
-  --img-gap: 0.25rem;
+.title {
+  font-size: 24px;
+  margin: 0;
+  color: white;
 }
 
-.container {
+.slider-container {
   display: flex;
   justify-content: center;
+  align-items: center;
+  height: 60vh;
   overflow: hidden;
-  /* margin-top: rem; */
+  width: 100%;
+  position: relative;
+  margin-top: 700px;
   background-color: black;
 }
 
 .slider {
-  --items-per-screen: 4;
-  --slider-index: 0;
   display: flex;
-  flex-grow: 1;
-  margin: 0 var(--img-gap);
-  transform: translateX(calc(var(--slider-index) * -100%));
-  transition: transform 250ms ease-in-out;
+  /* overflow-x: scroll;
+  scroll-snap-type: x mandatory; */
+  overflow: initial;
 }
 
-.slider > img {
-  flex: 0 0 calc(100% / var(--items-per-screen));
-  max-width: calc(100% / var(--items-per-screen));
-  aspect-ratio: 16 / 9;
-  padding: var(--img-gap);
-  border-radius: 1rem;
+.slider img {
+  flex: 0 0 auto;
+  width: 200px;
+  height: 300px;
+  margin-right: 30px;
+  scroll-snap-align: start;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.7);
+  border-radius: 5px;
+  transition: transform 0.2s ease-in-out;
 }
 
-.handle {
-  border: none;
-  border-radius: 1rem;
-  flex-grow: 0;
-  flex-shrink: 0;
-  background-color: rgba(255, 255, 255, 0.25);
-  z-index: 10;
-  margin: var(--img-gap) 0;
-  width: var(--handle-size);
-  cursor: pointer;
-  font-size: 5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  line-height: 0;
-  transition: background-color 150ms ease-in-out;
-}
-
-.left-handle {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-}
-
-.right-handle {
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-}
-
-.handle:hover,
-.handle:focus {
-  background-color: rgba(255, 255, 255, 0.5);
-}
-
-.handle:hover .text,
-.handle:focus .text {
+.slider img:hover {
   transform: scale(1.2);
 }
 
-.header {
+/* Style the arrow buttons */
+.arrow-left,
+.arrow-right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 24px;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+/* Style the left arrow */
+.arrow-left {
+  left: 30px;
+  width: 100px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: none;
+  color: white;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.arrow-right {
+  right: 30px;
+  width: 100px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: none;
+  color: white;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.arrow-left:hover,
+.arrow-right:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Style the indicator dots */
+.indicators {
   display: flex;
-  justify-content: space-between;
-  padding: 0.5rem calc(var(--img-gap) * 2 + var(--handle-size));
-  align-items: center;
-  margin-top: 35rem;
+  justify-content: center;
+  margin-top: 20px;
 }
 
-.title {
-  font-size: 2rem;
-  margin: 0;
-  color: aliceblue;
-}
-
-.progress-bar {
-  display: flex;
-  gap: 0.25rem;
-}
-
-.progress-item {
-  flex: 0 0 1.5rem;
-  min-width: 1.5rem;
-  height: 0.5rem;
+.indicator {
+  width: 10px;
+  height: 10px;
   background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
 }
 
-.progress-item.active {
-  background-color: rgba(255, 255, 255, 0.9);
-}
-
-.header-two {
-  margin-top: 0;
-  background-color: black;
+.indicator.active {
+  background-color: #e50914;
 }
