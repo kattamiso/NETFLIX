@@ -164,7 +164,3 @@ slider.addEventListener("click", function (event) {
   }
 });
 
-
-// Populate the slider and show the initial slide
-populateSlider();
-
