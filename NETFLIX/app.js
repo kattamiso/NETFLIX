@@ -22,8 +22,10 @@ async function fetchPopularMovies() {
       throw new Error("Failed to fetch data");
     }
     const data = await response.json();
-    console.log("Fetched data:", data); // Log fetched data
-    movies = data.results; // Store fetched movies globally
+    console.log("Fetched data:", data);
+    // Log fetched data
+    movies = data.results;
+    // Store fetched movies globally
     return movies;
   } catch (error) {
     console.error("Error fetching popular movies:", error);
@@ -73,22 +75,95 @@ function showSlide(index) {
 }
 
 // Function to go to a specific slide
-function goToSlide(index) {
-  if (index >= 0 && index < movies.length) {
-    showSlide(index);
-  }
-}
+const slideWidth = 20;
+const numImagesPerLoop = 3;
 
 // Function to move the slider left or right
 function moveSlider(direction) {
   const slides = document.querySelectorAll(".slider img");
   if (direction === "left") {
-    currentIndex--;
+    currentIndex -= numImagesPerLoop;
+    if (currentIndex < 0) {
+      currentIndex = slideWidth - numImagesPerLoop;
+    }
   } else if (direction === "right") {
-    currentIndex++;
+    currentIndex += numImagesPerLoop;
+    if (currentIndex >= slideWidth) {
+      currentIndex = 0;
+    }
   }
-  slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+  const translateValue = -currentIndex * (100 / slideWidth);
+
+  slider.style.transform = `translateX(${translateValue}%)`;
 }
+
+populateSlider();
+
+slider.addEventListener("click", function (event) {
+  if (event.target.tagName === "IMG") {
+    const data = {
+      title: "Movie Title",
+      overview: "Movie Overview",
+      release_date: "Release Date",
+      vote_average: "Vote Average",
+    };
+    console.log("Hello!");
+    // Redirect to film-details.html
+    window.location.href = "film-details.html";
+  }
+});
+
+
+
+// Populate the slider with movie posters from the API
+async function populateSlider() {
+  try {
+    console.log("Fetching popular movies...");
+    const data = await fetchPopularMovies(); // Fetch movies and store them in the global variable
+
+    slider.innerHTML = "";
+    indicatorsContainer.innerHTML = "";
+
+    data.forEach((movie, index) => {
+      const moviePoster = document.createElement("div");
+      moviePoster.classList.add("movie-poster");
+      const posterImg = document.createElement("img");
+      posterImg.src = `${IMG_PATH}${movie.poster_path}`;
+      posterImg.alt = movie.title;
+      moviePoster.appendChild(posterImg);
+      slider.appendChild(moviePoster);
+
+      // Create an indicator dot for each movie
+      const indicatorDot = document.createElement("div");
+      indicatorDot.classList.add("indicator-dot");
+      indicatorDot.addEventListener("click", () => goToSlide(index));
+      indicatorsContainer.appendChild(indicatorDot);
+    });
+
+    // Show the first movie by default
+    showSlide(currentIndex);
+  } catch (error) {
+    console.error("Error populating slider:", error);
+  }
+}
+
+// ...
+
+slider.addEventListener("click", function (event) {
+  if (event.target.tagName === "IMG") {
+    // Retrieve the clicked movie data
+    const clickedMovieIndex = Array.from(event.target.parentElement.parentElement.children).indexOf(event.target.parentElement);
+    const clickedMovie = movies[clickedMovieIndex];
+
+    // You can now use the 'clickedMovie' object to display details
+    console.log("Clicked movie data:", clickedMovie);
+
+    // Redirect to film-details.html and pass data if needed
+    // window.location.href = "film-details.html";
+  }
+});
+
 
 // Populate the slider and show the initial slide
 populateSlider();
